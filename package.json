@@ -1,0 +1,25 @@
+{
+  "name": "up",
+  "version": "1.0.0",
+  "description": "Check, is server up or down",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malyutinegor/up.git"
+  },
+  "author": "egorgl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/malyutinegor/up/issues"
+  },
+  "homepage": "https://github.com/malyutinegor/up#readme",
+  "devDependencies": {
+    "coffeescript": "^2.2.2",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-csso": "^3.0.1",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-uglify-es": "^1.0.1"
+  }
+}

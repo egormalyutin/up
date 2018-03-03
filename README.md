@@ -12,14 +12,14 @@ go get github.com/elazarl/go-bindata-assetfs/...
 
 Install Node.JS, NPM, then install Gulp and module dependencies:
 ```bash
-(sudo) npm i -g gulp
+(sudo) npm i -g gulp-cli
 npm i
 ```
 
 Compile bindata:
 ```bash
 gulp
-go-bindata-assetfs dest
+go-bindata-assetfs dist
 ```
 
 ### Compile binary
