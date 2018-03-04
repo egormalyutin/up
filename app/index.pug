@@ -3,14 +3,12 @@ html
 	head
 		title Up
 
-		//- Styles
 		link(rel = "stylesheet", type = "text/css", href = "main.css")
 	body
-		//- UI
 		main
 			h1 Check, is server up or down
 
-			//- Scripts	
+			//- Prevent redirect
 			form#check(action = "javascript:void(0)")
 				input(type = "text", name = "url")
 				input(type = "submit", value = "Check")

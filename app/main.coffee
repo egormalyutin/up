@@ -21,12 +21,10 @@ do ->
 	##### ELEMENTS #####
 
 	form  = byId('check')
-	input = byId('address')
 
 	##### HANDLERS #####
 
 	form.onsubmit = ->
-		alert input
-		addr = API_PREFIX + input.value
+		address = API_PREFIX + endcodeURIComponent(form.address.value)
 		httpGet addr, (data) ->
 			alert data
