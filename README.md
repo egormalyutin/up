@@ -1,5 +1,7 @@
 # up
 
+[![Travis](https://img.shields.io/travis/malyutinegor/up.svg?style=flat-square)](https://github.com/malyutinegor/up)
+
 ## Compilation
 Install Go and add GOPATH to your PATH.
 
