@@ -24,9 +24,9 @@ gulp.task 'build', clean, ->
 
 		.pipe rcs()
 
-		# .pipe gulpif "*.css",  csso()
-		# .pipe gulpif "*.js",   uglify.default()
-		# .pipe gulpif "*.html", htmlmin(collapseWhitespace: true)
+		.pipe gulpif "*.css",  csso()
+		.pipe gulpif "*.js",   uglify.default()
+		.pipe gulpif "*.html", htmlmin(collapseWhitespace: true)
 
 		.pipe gulp.dest "dist"
 
