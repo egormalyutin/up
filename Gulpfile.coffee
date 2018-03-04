@@ -1,30 +1,36 @@
 gulp    = require 'gulp'
-uglify  = require 'gulp-uglify'
-csso    = require 'gulp-csso'
+gulpif  = require 'gulp-if'
+stylus  = require 'gulp-stylus'
+pug     = require 'gulp-pug'
+coffee  = require 'gulp-coffee'
 htmlmin = require 'gulp-htmlmin'
+uglify  = require 'gulp-uglify-es'
+csso    = require 'gulp-csso'
+rcs     = require 'gulp-rcs'
 del     = require 'del'
 
-gulp.task 'clean', -> del "dest"
+gulp.task 'clean', -> del "dist"
 
-gulp.task 'html', ->
-	gulp.src "app/**/*.html"
-		.pipe htmlmin collapseWhitespace: true
-		.pipe gulp.dest "dist"
+if gulp.parallel
+	clean = gulp.parallel 'clean'
+else
+	clean = ['clean']
 
-gulp.task 'css', ->
-	gulp.src "app/**/*.css"
-		.pipe csso()
-		.pipe gulp.dest "dist"
+gulp.task 'build', clean, ->
+	gulp.src ["app/**/*.styl", "app/**/*.coffee", "app/**/*.pug"]
+		.pipe gulpif "*.styl",   stylus()
+		.pipe gulpif "*.coffee", coffee(bare: true)
+		.pipe gulpif "*.pug",    pug()
 
-gulp.task 'js', ->
-	gulp.src "app/**/*.js"
-		.pipe uglify()
+		.pipe rcs()
+
+		# .pipe gulpif "*.css",  csso()
+		# .pipe gulpif "*.js",   uglify.default()
+		# .pipe gulpif "*.html", htmlmin(collapseWhitespace: true)
+
 		.pipe gulp.dest "dist"
 
 if gulp.parallel
-	gulp.task 'build', gulp.parallel('html', 'css', 'js')
 	gulp.task 'default', gulp.parallel('build')
 else
-	gulp.task 'build', ['html', 'css', 'js']
 	gulp.task 'default', ['build']
-	

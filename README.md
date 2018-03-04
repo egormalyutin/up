@@ -29,6 +29,6 @@ go build
 
 Or run:
 ```bash
-go run bindata.go up.go
+go run bindata.go settings.go validate-url.go up.go
 ```
 

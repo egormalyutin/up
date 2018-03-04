@@ -1,0 +1,17 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+main {
+  display: flex;
+  flex-directon: column;
+  justify-content: center;
+  align-items: center;
+}
+.t {
+  background: #f00;
+}
+#n {
+  color: #00f;
+}
