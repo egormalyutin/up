@@ -2,34 +2,8 @@
 
 [![Travis](https://img.shields.io/travis/malyutinegor/up.svg?style=flat-square)](https://github.com/malyutinegor/up)
 
+## Preparing your environment
+Install Go and add GOPATH to your PATH. Then, install Node.JS and NPM for using Gulp and run `make prepare` for install other dependencies.
+
 ## Compilation
-Install Go and add GOPATH to your PATH.
-
-### Compile bindata
-Install bindata tool:
-```bash 
-go get github.com/jteeuwen/go-bindata/...
-go get github.com/elazarl/go-bindata-assetfs/...
-```
-
-Install Node.JS, NPM, then install Gulp and module dependencies:
-```bash
-(sudo) npm i -g gulp-cli
-npm i
-```
-
-Compile bindata:
-```bash
-gulp
-go-bindata-assetfs dist
-```
-
-### Compile binary
-```bash
-go build
-```
-
-Or run:
-```bash
-go run bindata.go settings.go validate.go check.go up.go
-```
+Run `make` or `make run` for start your compiled binary immediately.
