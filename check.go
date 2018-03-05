@@ -1,26 +1,19 @@
 package main
 
-import (
-	"net"
-	"time"
-)
-
-const (
-	DEFAULT_TIMEOUT = time.Duration(800 * time.Millisecond)
-)
-
 func Check(link string) string {
 	link = ValidateURL(link)
 
 	if IsURL(link) {
-		resp, err := net.DialTimeout("tcp", link, DEFAULT_TIMEOUT)
-		if err == nil {
-			resp.Close()
-			return "up"
+		if IsIP(link) {
+			if IsPrivate(link) {
+				return GenerateErrorJSON(1)
+			} else {
+				return Fetch(link)
+			}
 		} else {
-			return "down"
+			return Fetch(link)
 		}
 	} else {
-		return "error"
+		return GenerateErrorJSON(0)
 	}
 }

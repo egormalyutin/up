@@ -17,8 +17,10 @@ var (
 func GETHandler(w http.ResponseWriter, r *http.Request) {
 	// get link
 	link := r.URL.String()[len("/api/"):]
+
 	result := Check(link)
 	fmt.Fprintf(w, result)
+
 	if settings.Debug {
 		log.Printf("%s: %s\n", link, result)
 	}
@@ -37,8 +39,9 @@ func AllHandler(w http.ResponseWriter, r *http.Request) {
 
 /////////////////////////
 
-func main() {
+func Serve() {
 	settings = GetSettings()
+
 	files = http.FileServer(assetFS())
 
 	if !settings.OnlyAPI {
@@ -51,4 +54,10 @@ func main() {
 
 	portString := fmt.Sprintf(":%d", settings.Port)
 	log.Fatal(http.ListenAndServe(portString, nil))
+}
+
+/////////////////////////
+
+func main() {
+	Serve()
 }

@@ -23,13 +23,18 @@ prepare:
 	@echo "Installing Node.JS dependencies..."
 	@npm i
 
-build:
+web:
 	@gulp
 	@go-bindata-assetfs dist
+
+build: web
 	@go build
 
-run: build
-	@./up
+run: web
+	@go run settings.go bindata.go validate.go response.go fetch.go check.go up.go
+
+test:
+	@go test
 
 clean:
 	@rm -rf dist up
