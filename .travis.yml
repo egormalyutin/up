@@ -1,5 +1,7 @@
 language: go
 
+sudo: required
+
 before_install:
   - nvm install node
   - make prepare
