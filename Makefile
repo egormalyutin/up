@@ -23,6 +23,13 @@ prepare:
 	@echo "Installing Node.JS dependencies..."
 	@npm i
 
+prepare-ci:
+	@npm i -g gulp-cli 
+	@go get github.com/jteeuwen/go-bindata/...
+	@go get github.com/elazarl/go-bindata-assetfs/...
+	@go get -t ./...
+	@npm i
+
 web:
 	@gulp
 	@go-bindata-assetfs dist
