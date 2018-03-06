@@ -86,7 +86,7 @@ func distIndexHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "dist/index.html", size: 346, mode: os.FileMode(420), modTime: time.Unix(1520261117, 0)}
+	info := bindataFileInfo{name: "dist/index.html", size: 346, mode: os.FileMode(420), modTime: time.Unix(1520335421, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -106,7 +106,7 @@ func distMainCss() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "dist/main.css", size: 142, mode: os.FileMode(420), modTime: time.Unix(1520261117, 0)}
+	info := bindataFileInfo{name: "dist/main.css", size: 142, mode: os.FileMode(420), modTime: time.Unix(1520335421, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -126,7 +126,7 @@ func distMainJs() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "dist/main.js", size: 367, mode: os.FileMode(420), modTime: time.Unix(1520261117, 0)}
+	info := bindataFileInfo{name: "dist/main.js", size: 367, mode: os.FileMode(420), modTime: time.Unix(1520335421, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }

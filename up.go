@@ -50,7 +50,7 @@ func Serve() {
 
 	http.HandleFunc("/", AllHandler)
 
-	log.Printf("Listening on http://localhost:%d\n", settings.Port)
+	log.Printf("Listening on http://localhost:%d (can be a container port)\n", settings.Port)
 
 	portString := fmt.Sprintf(":%d", settings.Port)
 	log.Fatal(http.ListenAndServe(portString, nil))

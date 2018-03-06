@@ -40,6 +40,9 @@ build: web
 run: web
 	@go run settings.go bindata.go validate.go response.go fetch.go check.go up.go
 
+docker: web
+	@docker build -t is-up .
+	
 test:
 	@go test
 
