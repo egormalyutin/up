@@ -42,7 +42,12 @@ run: web
 
 docker: web
 	@docker build -t is-up .
-	
+
+now:
+	@now --docker --public
+
+deploy: now
+
 test:
 	@go test
 

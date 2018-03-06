@@ -20,11 +20,11 @@ do ->
 
 	##### ELEMENTS #####
 
-	form  = byId('check')
+	form = byId('check')
 
 	##### HANDLERS #####
 
 	form.onsubmit = ->
-		address = API_PREFIX + endcodeURIComponent(form.address.value)
-		httpGet addr, (data) ->
+		url = API_PREFIX + encodeURIComponent(form.url.value)
+		httpGet url, (data) ->
 			alert data

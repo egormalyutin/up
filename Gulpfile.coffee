@@ -22,8 +22,6 @@ gulp.task 'build', clean, ->
 		.pipe gulpif "*.coffee", coffee(bare: true)
 		.pipe gulpif "*.pug",    pug()
 
-		.pipe rcs()
-
 		.pipe gulpif "*.css",  csso()
 		.pipe gulpif "*.js",   uglify.default()
 		.pipe gulpif "*.html", htmlmin(collapseWhitespace: true)
