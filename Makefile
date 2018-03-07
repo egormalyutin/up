@@ -1,4 +1,4 @@
-SOURCES=settings.go bindata.go validate.go response.go fetch.go check.go up.go
+SOURCES=settings.go bindata.go validate.go response.go check.go up.go
 
 all: build
 

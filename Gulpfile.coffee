@@ -10,6 +10,7 @@ pug     = require 'gulp-pug'
 coffee  = require 'gulp-coffee'
 htmlmin = require 'gulp-htmlmin'
 uglify  = require 'gulp-uglify-es'
+prefix  = require 'gulp-autoprefixer'
 csso    = require 'gulp-csso'
 fontmin = require 'gulp-fontmin'
 del     = require 'del'
@@ -31,11 +32,15 @@ builders = (x, p) ->
 		.pipe fontmin
 		.pipe filter, ["**/*.ttf"]
 
+	css = lazy()
+		.pipe csso
+		.pipe prefix
+
 	x.pipe gulpif "*.styl",   stylus()
 		.pipe gulpif "*.coffee", coffee(bare: true)
 		.pipe gulpif "*.pug",    pug()
 
-		.pipe gulpif "*.css",  csso()
+		.pipe gulpif "*.css",  css()
 		.pipe gulpif "*.js",   uglify.default()
 		.pipe gulpif "*.html", htmlmin(collapseWhitespace: true)
 
