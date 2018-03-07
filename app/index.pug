@@ -1,6 +1,8 @@
 doctype html
 html
 	head
+		meta(charset = "utf-8")
+
 		title Up
 
 		//- Styles
@@ -10,9 +12,23 @@ html
 		main
 			.back-rect
 				form#check(action = "javascript:void(0)")
-					h1 IS HOST UP OR DOWN?
-					.loader
-					input(type = "text", name = "url")
-					input(type = "submit", value = "Check")
+					#form-content.show
+						h1#status IS HOST UP OR DOWN?
+						input(type = "text", name = "url")
+						input(type = "submit", value = "Check")
+
+		#loader-container
+			.loader
+				.loader-1
+				.loader-2
+				.loader-3
+
+		.api
+			a.api-link(href = "https://github.com/malyutinegor/up") API
+
+		.github
+			a.github-link(href = "https://github.com/malyutinegor/up")
+				svg.github-svg(xmlns = "http://www.w3.org/2000/svg", aria-hidden = "true", height = "200", viewBox = "0 0 100 100", width = "200")
+					path.github-path(d = "M50 0C22.375 0 0 22.94 0 51.265c0 22.684 14.313 41.844 34.188 48.637 2.5.449 3.437-1.09 3.437-2.435 0-1.218-.063-5.255-.063-9.548C25 90.289 21.75 84.779 20.75 81.895c-.563-1.474-3-6.023-5.125-7.24-1.75-.962-4.25-3.333-.063-3.397 3.938-.064 6.75 3.717 7.688 5.255 4.5 7.753 11.688 5.575 14.563 4.229.437-3.332 1.75-5.575 3.187-6.857-11.125-1.281-22.75-5.703-22.75-25.312 0-5.575 1.938-10.189 5.125-13.777-.5-1.282-2.25-6.536.5-13.585 0 0 4.188-1.346 13.75 5.254 4-1.153 8.25-1.73 12.5-1.73s8.5.577 12.5 1.73c9.563-6.664 13.75-5.254 13.75-5.254 2.75 7.049 1 12.303.5 13.585C80.063 38.384 82 42.934 82 48.573c0 19.673-11.688 24.03-22.813 25.312 1.813 1.602 3.376 4.678 3.376 9.484 0 6.857-.063 12.368-.063 14.098 0 1.346.938 2.948 3.438 2.435A50.081 51.348 0 0 0 100 51.265C100 22.94 77.625 0 50 0z")
 
 		script(type = "text/javascript", src = "main.js")

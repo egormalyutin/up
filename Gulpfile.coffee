@@ -25,10 +25,10 @@ else
 
 builders = (x, p) ->
 	if p
-		x = x.pipe plumber()
+		x = x.pipe plumber console.log 
 
 	fonts = lazy()
-		.pipe fontmin, text: "IS HOST UP OR DOWN?"
+		.pipe fontmin
 		.pipe filter, ["**/*.ttf"]
 
 	x.pipe gulpif "*.styl",   stylus()
