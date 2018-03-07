@@ -1,0 +1,37 @@
+bg  = #212121
+bg2 = #343434
+clr = #9E9E9E
+
+center()
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+
+@font-face
+	font-family: font
+	src: url(../font.ttf)
+
+html, body
+	height: 100%
+	margin: 0
+	padding: 0
+	background: bg
+	font-family: font
+
+main
+	height: 100%
+	width: 100%
+	center()
+
+.back-rect
+	width: 25em
+	height: 25em
+	color: clr
+	background: bg2
+	transform: rotate(45deg)
+	center()
+
+form
+	transform: rotate(-45deg)
+	center()

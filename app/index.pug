@@ -3,14 +3,16 @@ html
 	head
 		title Up
 
-		link(rel = "stylesheet", type = "text/css", href = "main.css")
+		//- Styles
+		link(rel = "stylesheet", type = "text/css", href = "css/main.css")
+		link(rel = "stylesheet", type = "text/css", href = "css/loader.css")
 	body
 		main
-			h1 Check, is server up or down
+			.back-rect
+				form#check(action = "javascript:void(0)")
+					h1 IS HOST UP OR DOWN?
+					.loader
+					input(type = "text", name = "url")
+					input(type = "submit", value = "Check")
 
-			//- Prevent redirect
-			form#check(action = "javascript:void(0)")
-				input(type = "text", name = "url")
-				input(type = "submit", value = "Check")
-
-			script(type = "text/javascript", src = "main.js")
+		script(type = "text/javascript", src = "main.js")

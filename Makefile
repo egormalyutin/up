@@ -1,3 +1,5 @@
+SOURCES=settings.go bindata.go validate.go response.go fetch.go check.go up.go
+
 all: build
 
 prepare:
@@ -32,13 +34,20 @@ prepare-ci:
 
 web:
 	@gulp
-	@go-bindata-assetfs dist
+	@go-bindata-assetfs dist/...
+
+watch:
+	@gulp watch
 
 build: web
 	@go build
 
 run: web
-	@go run settings.go bindata.go validate.go response.go fetch.go check.go up.go
+	@go run $(SOURCES)
+
+debug:
+	@go-bindata-assetfs dist/...
+	@go run $(SOURCES)
 
 docker: web
 	@docker build -t is-up .

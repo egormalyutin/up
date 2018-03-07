@@ -6,7 +6,7 @@ import (
 )
 
 const (
-	DEFAULT_TIMEOUT = time.Duration(800 * time.Millisecond)
+	DEFAULT_TIMEOUT = time.Duration(5 * time.Second)
 )
 
 func Fetch(link string) string {

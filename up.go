@@ -10,7 +10,25 @@ import (
 var (
 	settings Settings
 	files    http.Handler
+
+	fileRoutes = [6]string{
+		"/",
+		"/font.ttf",
+		"/index.html",
+		"/main.js",
+		"/css/main.css",
+		"/css/loader.css",
+	}
 )
+
+func fileRouteExists(name string) bool {
+	for _, name2 := range fileRoutes {
+		if name == name2 {
+			return true
+		}
+	}
+	return false
+}
 
 /////////////////////////
 
@@ -28,7 +46,7 @@ func GETHandler(w http.ResponseWriter, r *http.Request) {
 
 func AllHandler(w http.ResponseWriter, r *http.Request) {
 	switch {
-	case !settings.OnlyAPI && ((r.URL.Path == "/index.html") || (r.URL.Path == "/main.css") || (r.URL.Path == "/main.js") || (r.URL.Path == "/")):
+	case !settings.OnlyAPI && fileRouteExists(r.URL.Path):
 		files.ServeHTTP(w, r)
 	case strings.HasPrefix(r.URL.Path, "/api"):
 		GETHandler(w, r)
@@ -41,8 +59,6 @@ func AllHandler(w http.ResponseWriter, r *http.Request) {
 
 func Serve() {
 	settings = GetSettings()
-
-	files = http.FileServer(assetFS())
 
 	if !settings.OnlyAPI {
 		files = http.FileServer(assetFS())
